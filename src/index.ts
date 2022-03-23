@@ -20,6 +20,12 @@ async function hello(name: string) {
     console.log("success")
   }
 
+  // サブスクリプションの「支払い状態」が取得できるっぽい
+  const { status } = await stripe.subscriptions.retrieve("sub_1Ket9WJ5eevincbf5btxTMcF")
+  if (status === "active") {
+    console.log(status)
+  }
+
   return `Hello, ${name}!`;
 }
 
